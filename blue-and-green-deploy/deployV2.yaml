@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: app-alpha-back
+    zone: blue
+    version: v2
+    tier: back
+  name: app-alpha-back
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app-alpha-back
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: app-alpha-back
+        zone: blue
+        version: v2
+        tier: back
+    spec:
+      containers:
+      - image: nginx:stable
+        name: nginx
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"        
+status: {}

@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np1
+  namespace: project-alpha
+spec:
+  podSelector:
+    matchLabels:
+      tier: front          # label of the pods this policy should be applied on
+  policyTypes:
+  - Egress                  # we only want to control egress
+  egress:
+  - to:                     # 1st egress rule
+    - podSelector:            # allow egress only to pods with api label
+        matchLabels:
+          tier: back
+  - ports:                  # 2nd egress rule
+    - port: 53                # allow DNS UDP
+      protocol: UDP
+    - port: 53                # allow DNS TCP
+      protocol: TCP
