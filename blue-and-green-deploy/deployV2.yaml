@@ -7,6 +7,7 @@ metadata:
     version: v2
     tier: back
   name: app-alpha-back
+  namespace: project-alpha
 spec:
   replicas: 3
   selector:
@@ -20,6 +21,7 @@ spec:
         zone: blue
         version: v2
         tier: back
+      namespace: project-alpha
     spec:
       containers:
       - image: nginx:stable
