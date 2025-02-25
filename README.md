@@ -13,6 +13,9 @@ Similar to the blue-and-green folder, this one has two deployment versions (V1 a
 ## 📁 networks
 Contains a network policy (`np-egress-podselector.yaml`) that defines egress rules to control outgoing traffic from pods in the `project-alpha` namespace.
 
+## 📁 sidecar-logging
+Contains a deployment configuration (`deploy.yaml`) for an app called `app-alpha` with sidecar containers for logging. This setup includes init containers and a logger container to handle log files.
+
 ## 📄 .gitignore
 Specifies which files and folders should be ignored by Git, such as compiled files, logs, and other temporary files.
 
