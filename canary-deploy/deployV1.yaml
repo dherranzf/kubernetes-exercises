@@ -6,6 +6,7 @@ metadata:
     tier: back
     version: v1
   name: app-alpha-back
+  namespace: project-alpha
 spec:
   replicas: 8 # Validate v2 and change to 0
   selector:
@@ -18,6 +19,7 @@ spec:
         app: app-alpha-back
         tier: back
         version: v1
+      namespace: project-alpha
     spec:
       containers:
       - image: httpd:stable
